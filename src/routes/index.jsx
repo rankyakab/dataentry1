@@ -28,6 +28,8 @@ import SubUnit from "../pages/subunit/SubUnit";
 import AddSubUnit from "../pages/subunit/AddSubUnit";
 import ViewTeam from "../pages/team/ViewTeam.";
 import UpdateSubUnit from "../pages/subunit/UpdateSubUnit";
+import Unit from "../pages/unit/Unit";
+import AddUnit from "../pages/unit/AddUnit";
 export const AppRoutes = createBrowserRouter([
   {
     path: "/",
@@ -141,13 +143,26 @@ export const AppRoutes = createBrowserRouter([
     element: <Update />,
   },
   {
-    path: "/subunit",
+    path: "/subward",
     element: <SubUnit />,
   },
+  
   {
-    path: "/addsubunit",
+    path: "/addsubward",
     element: <AddSubUnit />,
   },
+
+  {
+    path: "/unit",
+    element: <Unit />,
+  },
+
+  {
+    path: "/addunit",
+    element: <AddUnit />,
+  },
+
+
   {
     path: "/updatesubunit",
     element: <UpdateSubUnit />,

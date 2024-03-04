@@ -10,13 +10,13 @@ import {
 } from "@heroicons/react/24/solid";
 import AddButton from "../../components/layout/AddButton";
 // import AddButton from "./AddButton"
-const SubUnit = () => {
+const Unit = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const stateVariables = location.state;
 
   const navigateToSubUnit = () => {
-    navigate("/addsubunit");
+    navigate("/addunit");
   };
 
   const [selectedState, setSelectedState] = useState(
@@ -947,11 +947,11 @@ const SubUnit = () => {
             <CloudArrowDownIcon width={24} height={24} /> Export Report
           </button>
 
-          <AddButton onClick={navigateToSubUnit} buttonText={"Add SubWard"} />
+          <AddButton onClick={navigateToSubUnit} buttonText={"Add Unit"} />
         </div>
       </div>
       <div className="p-3 my-8 overflow-hidden">
-        <h2 className="font-bold text-2xl">Sub-Ward Management</h2>
+        <h2 className="font-bold text-2xl">Unit Management</h2>
 
         <section className="">
           <form action="" className="">
@@ -1019,16 +1019,16 @@ const SubUnit = () => {
         {selectedWard && (
           <div className="overflow-x-auto">
             <h2 className="font-bold text-3xl mt-11">
-              {selectedState} State, {selectedLGA} LGA, {selectedWard} Sub-Ward
+              {selectedState} State, {selectedLGA} LGA, {selectedWard} Unit
               List{" "}
-              <Link to="/updatesubunit">
+              <Link to="/updateunit">
                 <button className="bg-blue text-slate-100 px-2 py-1 rounded-md mx-10 text-lg">
-                  +Add to {selectedWard} Sub-ward list
+                  +Add to {selectedWard} Unit list
                 </button>
               </Link>
             </h2>
             <p className="text-slate-500 font-normal">
-              Here is a list of Sub-ward for {selectedWard}
+              Here is a list of Unit for {selectedWard}
             </p>
 
             <table className="min-w-full text-center text-sm font-light mt-8 overflow-x-auto table-auto">
@@ -1047,7 +1047,7 @@ const SubUnit = () => {
                     Ward
                   </th>
                   <th scope="col" className="px-6 py-4">
-                    Subward
+                    Unit
                   </th>
                   <th scope="col" className="px-6 py-4">
                     Number of house(s)
@@ -1140,4 +1140,4 @@ const SubUnit = () => {
   );
 };
 
-export default SubUnit;
+export default Unit;

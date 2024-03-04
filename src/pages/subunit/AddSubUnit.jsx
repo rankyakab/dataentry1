@@ -931,7 +931,7 @@ const AddSubUnit = () => {
             </div>
 
             <div className="col-span-2">
-              <h1 className="text-2xl font-bold text-blue">Create Sub-unit</h1>
+              <h1 className="text-2xl font-bold text-blue">Create Sub-Ward</h1>
             </div>
           </head>
 
@@ -967,10 +967,10 @@ const AddSubUnit = () => {
                       setSelectedLGA(e.target.value);
                       setSubUnitName(
                         selectedState +
-                          "-" +
-                          e.target.value +
-                          "-" +
-                          selectedWard
+                        "-" +
+                        e.target.value +
+                        "-" +
+                        selectedWard
                       );
                     }}
                   >
@@ -1015,8 +1015,8 @@ const AddSubUnit = () => {
                     className="p-3 rounded bg-slate-200 block w-full"
                     type="text"
                     name="sub units"
-                    disabled
-                    value={subUnitName}
+
+                    // value={subUnitName}
                   />
                 </div>
               </div>

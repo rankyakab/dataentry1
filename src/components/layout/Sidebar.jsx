@@ -82,13 +82,25 @@ export default function Sidebar() {
 
           <li className="">
             <Link
-              to={"/subunit"}
+              to={"/subward"}
               className="text-slate-300 p-2 py-4 rounded-s-3xl w-full flex items-center hover:text-blue hover:bg-slate-100 active:text-blue active:bg-slate-100"
             >
               <UsersIcon width={24} height={24} className="mr-2" />{" "}
-              <span>Sub-Unit Management</span>
+              <span>Sub-Ward Management</span>
             </Link>
           </li>
+
+          <li className="">
+            <Link
+              to={"/unit"}
+              className="text-slate-300 p-2 py-4 rounded-s-3xl w-full flex items-center hover:text-blue hover:bg-slate-100 active:text-blue active:bg-slate-100"
+            >
+              <UsersIcon width={24} height={24} className="mr-2" />{" "}
+              <span>Unit Management</span>
+            </Link>
+          </li>
+
+
           <li className="">
             <Link
               to={"/subunit"}
