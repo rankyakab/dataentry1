@@ -1000,9 +1000,7 @@ const Unit = () => {
                 <select
                   required
                   className="p-3 rounded bg-slate-300 block w-full"
-                  onChange={(e) => {
-                    setSelectedWard(e.target.value);
-                  }}
+                
                 >
                   <optgroup>
                     <option value={"ward 1"}>ward 1</option>
@@ -1011,7 +1009,42 @@ const Unit = () => {
                   </optgroup>
                 </select>
               </div>
+
+            <div className="">
+                <label className="mb-3 block">Sub Ward *</label>
+                <select
+                  required
+                  className="p-3 rounded bg-slate-300 block w-full"
+             
+                >
+                  <optgroup>
+                    <option value={"ward 1"}>subward 1</option>
+                    <option value={"ward 2"}>subward 2</option>
+                    <option value={"ward 3"}>subward 3</option>
+                  </optgroup>
+                </select>
+              </div>
+
+
+
+              <div className="">
+                <label className="mb-3 block">Unit *</label>
+                <select
+                  required
+                  className="p-3 rounded bg-slate-300 block w-full"
+                  onChange={(e) => {
+                    setSelectedWard(e.target.value);
+                  }}
+                >
+                  <optgroup>
+                    <option value={"ward 1"}>unit 1</option>
+                    <option value={"ward 2"}>Unit 2</option>
+                    <option value={"ward 3"}>Unit 3</option>
+                  </optgroup>
+                </select>
+              </div>
             </div>
+
             {/* super admin, senoir admin, admin, supervisor, fieldofficers */}
           </form>
         </section>

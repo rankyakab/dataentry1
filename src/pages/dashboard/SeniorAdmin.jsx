@@ -4,11 +4,15 @@ import IconChartLineVariant from "../../components/svg/IconChartLineVariant"
 import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/24/solid"
 import PieChart from "./chart/PieChart"
 import LineChart from "./chart/LineChart"
+import AreaChart from "./chart/AreaChart"
+import BarChart from "./chart/BarChart"
+import DonutChart from "./chart/Donut"
+import RadarChart from "./chart/RaderChart"
 
-export default function Cards() {
+export default function SeniorAdmin() {
 	return (
 		<div className="mt-10">
-			<h1 className="mt-4 mx-auto text-xl font-bold"> Super Admin </h1>
+			<h1 className="mt-4 mx-auto text-xl font-bold">Senior  Admin </h1>
 			<section className="oti_cards-container flex gap-3 md:flex-row xs:flex-col">
 				<div className="rounded-3xl shadow-md md:p-8 xs:p-5 w-full">
 					<h3 className="font-semibold text-md">Completed Task</h3>
@@ -66,10 +70,10 @@ export default function Cards() {
 
 			<section className="oti_cards-container flex gap-3 md:flex-row xs:flex-col">
 				<div className="rounded-3xl shadow-md md:p-8 xs:p-5 w-full">
-					<LineChart />
+					<RadarChart />
 					</div>
 					<div className="rounded-3xl shadow-md md:p-8 xs:p-5 w-full">
-					<PieChart />
+					<DonutChart />
 					</div>
 					
 					</section>

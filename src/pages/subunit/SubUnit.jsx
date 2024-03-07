@@ -16,7 +16,7 @@ const SubUnit = () => {
   const stateVariables = location.state;
 
   const navigateToSubUnit = () => {
-    navigate("/addsubunit");
+    navigate("/addsubward");
   };
 
   const [selectedState, setSelectedState] = useState(
@@ -1000,9 +1000,7 @@ const SubUnit = () => {
                 <select
                   required
                   className="p-3 rounded bg-slate-300 block w-full"
-                  onChange={(e) => {
-                    setSelectedWard(e.target.value);
-                  }}
+            
                 >
                   <optgroup>
                     <option value={"ward 1"}>ward 1</option>
@@ -1011,6 +1009,25 @@ const SubUnit = () => {
                   </optgroup>
                 </select>
               </div>
+
+
+              <div className="">
+                <label className="mb-3 block">Sub Ward *</label>
+                <select
+                  required
+                  className="p-3 rounded bg-slate-300 block w-full"
+                  onChange={(e) => {
+                    setSelectedWard(e.target.value);
+                  }}
+                >
+                  <optgroup>
+                    <option value={"ward 1"}>subward 1</option>
+                    <option value={"ward 2"}>subward 2</option>
+                    <option value={"ward 3"}>subward 3</option>
+                  </optgroup>
+                </select>
+              </div>
+      
             </div>
             {/* super admin, senoir admin, admin, supervisor, fieldofficers */}
           </form>

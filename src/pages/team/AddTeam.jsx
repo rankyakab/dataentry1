@@ -3,8 +3,9 @@ import ContentContainer from "../../components/misc/ContentContainer";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import React, { useState, ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Select from 'react-select';
 
-const AddSubUnit = () => {
+const AddTeam = () => {
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1); // Navigates back one step in the history
@@ -16,6 +17,14 @@ const AddSubUnit = () => {
   const [subUnitName, setSubUnitName] = useState(
     selectedState + "-" + selectedLGA + "" + selectedWard
   );
+
+
+  const officers = [
+    { value: "john", label: "John" },
+    { value: "ali", label: "Ali" },
+    { value: "malik", label: "Malik" },
+    { value: "dayo", label: "Dayo" },
+  ];
 
   const nigeriaStates = [
     "Abia",
@@ -912,7 +921,7 @@ const AddSubUnit = () => {
 
   const handleSubmit = (e) => {
     e?.preventDefault();
-    navigate("/subunit");
+    navigate("/unit");
   };
 
   return (
@@ -931,7 +940,7 @@ const AddSubUnit = () => {
             </div>
 
             <div className="col-span-2">
-              <h1 className="text-2xl font-bold text-blue">Create Sub-Ward</h1>
+              <h1 className="text-2xl font-bold text-blue">Create Team</h1>
             </div>
           </head>
 
@@ -1006,26 +1015,41 @@ const AddSubUnit = () => {
                   </select>
                 </div>
                 <div className="">
-                  <label htmlFor="employeeStatus" className="mb-3 block">
-                    Sub-Ward *
-                  </label>
-
-                  <input
+                  <label className="mb-3 block">Sub-Ward *</label>
+                  <select
                     required
-                    className="p-3 rounded bg-slate-200 block w-full"
-                    type="text"
-                    name="sub units"
+                    className="p-3 rounded bg-slate-300 block w-full"
+                    onChange={(e) => {
+                      setSelectedWard(e.target.value);
+                      setSubUnitName(
+                        selectedState + "-" + selectedLGA + "-" + e.target.value
+                      );
+                    }}
+                  >
+                    <optgroup>
+                      <option value={"ward1"}>unit1</option>
+                      <option value={"ward2"}>unit2</option>
+                      <option value={"ward3"}>unit3</option>
+                    </optgroup>
+                  </select>
+                </div>
 
-                    // value={subUnitName}
-                  />
+                <div className="">
+                <Select
+                  required
+                  isMulti // Enable multi-select
+                  options={officers}
+               
+                  className="p-3 rounded bg-slate-300 block w-full"
+                />
                 </div>
               </div>
 
               {/* super admin, senoir admin, admin, supervisor, fieldofficers */}
 
               <div className="my-4 flex items-center justify-end">
-                <button className="p-3 rounded bg-blue text-slate-100 text-center" onClick={handleGoBack} >
-                  Add ward
+                <button className="p-3 rounded bg-blue text-slate-100 text-center">
+                  Add Team
                 </button>
               </div>
             </form>
@@ -1036,4 +1060,4 @@ const AddSubUnit = () => {
   );
 };
 
-export default AddSubUnit;
+export default AddTeam;

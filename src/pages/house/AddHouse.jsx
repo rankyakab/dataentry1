@@ -1022,6 +1022,32 @@ const AddHouse = () => {
                     </select>
                   </div>
 
+
+                  <div className="">
+                    <label className="mb-3 block">Unit *</label>
+                    <select
+                      required
+                      className="p-3 rounded bg-slate-300 block w-full"
+                      onChange={handleSubUnitChange}
+                      value={selectedSubUnit}
+                    >
+                      <option value="" disabled>
+                        Select Uunit*
+                      </option>
+                      <option value="" >
+                        Unit 1
+                      </option>
+
+                      <option value="" >
+                        Unit 2
+                      </option>
+                      <option value="" >
+                        Unit 3
+                      </option>
+                      
+                    </select>
+                  </div>
+
                   <div className="">
                     <label htmlFor="street" className="mb-3 block">
                       Street *

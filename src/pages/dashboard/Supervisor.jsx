@@ -5,10 +5,10 @@ import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/24/solid"
 import PieChart from "./chart/PieChart"
 import LineChart from "./chart/LineChart"
 
-export default function Cards() {
+export default function Supervisor() {
 	return (
 		<div className="mt-10">
-			<h1 className="mt-4 mx-auto text-xl font-bold"> Super Admin </h1>
+			<h1 className="mt-4 mx-auto text-xl font-bold"> Supervisor </h1>
 			<section className="oti_cards-container flex gap-3 md:flex-row xs:flex-col">
 				<div className="rounded-3xl shadow-md md:p-8 xs:p-5 w-full">
 					<h3 className="font-semibold text-md">Completed Task</h3>

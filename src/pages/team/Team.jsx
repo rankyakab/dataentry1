@@ -35,6 +35,10 @@ export default function TeamPage() {
     );
     setSelectedOfficers(newSelectedOfficers);
   };
+
+  const navigateToTask = () => {
+    navigate('addteam')
+  }
   const nigeriaStates = [
     "Abia",
     "Adamawa",
@@ -957,9 +961,11 @@ export default function TeamPage() {
           >
             <CloudArrowDownIcon width={24} height={24} /> Export Report
           </button>
+
+          <AddButton onClick={navigateToTask} buttonText={"Add Team"} />
         </div>
       </div>
-      <div className="p-3 my-8 overflow-hidden">
+      <div className="p-3 my-8 overflow-hidden overflow-y-auto">
         <h2 className="font-bold text-2xl">Team Management</h2>
 
         <section className="">
@@ -972,9 +978,8 @@ export default function TeamPage() {
                   className="p-3 rounded bg-slate-300 block w-full"
                   onChange={handleStateChange}
                   value={selectedState}
-                  disabled
                 >
-                  <option value="" disabled>
+                  <option value="">
                     Select a State
                   </option>
                   {nigeriaStates.map((state, index) => (
@@ -992,9 +997,8 @@ export default function TeamPage() {
                   className="p-3 rounded bg-slate-300 block w-full"
                   value={selectedLGA}
                   onChange={(e) => setSelectedLGA(e.target.value)}
-                  disabled
                 >
-                  <option value="" disabled>
+                  <option value="" >
                     Select an LGA
                   </option>
                   {nigeriaLGAs[selectedState] &&
@@ -1012,7 +1016,6 @@ export default function TeamPage() {
                   required
                   className="p-3 rounded bg-slate-300 block w-full"
                   value={selectedWard}
-                  disabled
                 >
                   <optgroup>
                     <option value={"Ward 1"}>Ward 1</option>
@@ -1022,25 +1025,21 @@ export default function TeamPage() {
                 </select>
               </div>
               <div className="">
-                <label htmlFor="employeeStatus" className="mb-3 block">
-                  Team Name *
-                </label>
-
-                <input
+                <label className="mb-3 block">SUb unit *</label>
+                <select
                   required
-                  className="p-3 rounded bg-slate-200 block w-full"
-                  type="text"
-                  name="teamname"
-                  disabled
-                  value={
-                    selectedState +
-                    "-" +
-                    selectedLGA +
-                    "-" +
-                    selectedWard +
-                    "-Team29"
-                  }
-                />
+                  className="p-3 rounded bg-slate-300 block w-full"
+                  value={selectedWard}
+                  onChange={(e) => {
+                    setSelectedWard(e.target.value);
+                  }}
+                >
+                  <optgroup>
+                    <option value={"Ward 1"}>subunit 1</option>
+                    <option value={"Ward 2"}>subunit 2</option>
+                    <option value={"Ward 3"}>subunit 3</option>
+                  </optgroup>
+                </select>
               </div>
               {/* new  */}
               <div className="">
@@ -1049,19 +1048,138 @@ export default function TeamPage() {
                   required
                   isMulti // Enable multi-select
                   options={officers}
+               
                   className="p-3 rounded bg-slate-300 block w-full"
                 />
               </div>
               <div className=""></div>
             </div>
-            <button className="bg-blue text-slate-100 px-3 py-1 rounded-md mt-6">
+            {/* <button className="bg-blue text-slate-100 px-3 py-1 rounded-md mt-6">
               Submit
-            </button>
+            </button> */}
             {/* super admin, senoir admin, admin, supervisor, fieldofficers */}
           </form>
         </section>
+        {selectedWard && (
+          <div className="overflow-x-auto">
+            <h2 className="font-bold text-3xl mt-11">
+              {selectedState} State, {selectedLGA} LGA, {selectedWard} Sub-Ward
+              List{" "}
+              <Link to="/updatesubunit">
+                <button className="bg-blue text-slate-100 px-2 py-1 rounded-md mx-10 text-lg">
+                  +Add to {selectedWard} Sub-ward list
+                </button>
+              </Link>
+            </h2>
+            <p className="text-slate-500 font-normal">
+              Here is a list of Sub-ward for {selectedWard}
+            </p>
 
-        <div className="overflow-x-auto">
+            <table className="min-w-full text-center text-sm font-light mt-8 overflow-x-auto table-auto">
+              <thead className="font-medium bg-blue text-slate-100 ">
+                <tr>
+                  <th scope="col" className="px-6 py-4">
+                    #
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    State
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    LGA
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    Ward
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    Subward
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    Number of house(s)
+                  </th>
+
+                  <th scope="col" className="px-6 py-4">
+                    Delete
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedState}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">{selectedLGA}</td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedWard}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedState +
+                      "-" +
+                      selectedLGA +
+                      "-" +
+                      selectedWard +
+                      "-02"}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">0</td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    <Link to="/">
+                      <button className="bg-blue text-slate-100 px-3 py-1 rounded-md">
+                        Delete
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedState}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">{selectedLGA}</td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedWard}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedState +
+                      "-" +
+                      selectedLGA +
+                      "-" +
+                      selectedWard +
+                      "-03"}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">34</td>
+                  <td className="whitespace-nowrap px-6 py-4"></td>
+                </tr>
+                <tr>
+                  <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedState}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">{selectedLGA}</td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedWard}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    {selectedState +
+                      "-" +
+                      selectedLGA +
+                      "-" +
+                      selectedWard +
+                      "-04"}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">0</td>
+                  <td className="whitespace-nowrap px-6 py-4">
+                    <Link to="/">
+                      <button className="bg-blue text-slate-100 px-3 py-1 rounded-md">
+                        Delete
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+        {/* <div className="overflow-x-auto">
           <h2 className="font-bold text-2xl mt-10">Team List</h2>
           <p className="text-slate-500 font-normal">
             List of created Teams for {selectedState} State {selectedLGA} lGA
@@ -1194,7 +1312,7 @@ export default function TeamPage() {
               )}
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
     </Layout>
   );

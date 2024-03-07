@@ -5,6 +5,10 @@ import DataCollection from "./DataCollection"
 import NavHeader from "../../components/layout/NavHeader"
 import { useNavigate } from "react-router-dom"
 import DashboardNav from "./DashboardNav"
+import Admin from "./Admin"
+import SeniorAdmin from "./SeniorAdmin"
+import Supervisor from "./Supervisor"
+import Field from "./Field"
 
 export default function Dashboard() {
 
@@ -20,7 +24,10 @@ export default function Dashboard() {
 			{/* <NavHeader    /> */}
 			<DashboardNav />
 			<Cards />
-
+			<SeniorAdmin />
+			<Admin />
+			<Supervisor />
+			<Field />
 			<DataCollection />
 		</Layout>
 	)

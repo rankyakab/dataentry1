@@ -1006,23 +1006,28 @@ const AddUnit = () => {
                   </select>
                 </div>
                 <div className="">
-                  <label htmlFor="employeeStatus" className="mb-3 block">
-                    Units *
-                  </label>
-
-                  <input
+                  <label className="mb-3 block">Sub-Ward *</label>
+                  <select
                     required
-                    className="p-3 rounded bg-slate-200 block w-full"
-                    type="text"
-                    name="units"
-
-                    // value={subUnitName}
-                  />
+                    className="p-3 rounded bg-slate-300 block w-full"
+                    onChange={(e) => {
+                      setSelectedWard(e.target.value);
+                      setSubUnitName(
+                        selectedState + "-" + selectedLGA + "-" + e.target.value
+                      );
+                    }}
+                  >
+                    <optgroup>
+                      <option value={"ward1"}>unit1</option>
+                      <option value={"ward2"}>unit2</option>
+                      <option value={"ward3"}>unit3</option>
+                    </optgroup>
+                  </select>
                 </div>
 
                 <div className="">
                   <label htmlFor="employeeStatus" className="mb-3 block">
-                    Sub-Units *
+                    Units *
                   </label>
 
                   <input

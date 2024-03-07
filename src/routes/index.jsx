@@ -30,6 +30,8 @@ import ViewTeam from "../pages/team/ViewTeam.";
 import UpdateSubUnit from "../pages/subunit/UpdateSubUnit";
 import Unit from "../pages/unit/Unit";
 import AddUnit from "../pages/unit/AddUnit";
+import AddTask from "../pages/task/Addtask";
+import AddTeam from "../pages/team/AddTeam";
 export const AppRoutes = createBrowserRouter([
   {
     path: "/",
@@ -91,6 +93,16 @@ export const AppRoutes = createBrowserRouter([
   {
     path: "/my-task",
     element: <TaskboardPage />,
+  },
+
+  {
+    path: "/addtask",
+    element: <AddTask />,
+  },
+
+  {
+    path: "/addteam",
+    element: <AddTeam />,
   },
   {
     path: "/adduser",

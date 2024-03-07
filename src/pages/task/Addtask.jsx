@@ -4,7 +4,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import React, { useState, ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const AddSubUnit = () => {
+const AddTask = () => {
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1); // Navigates back one step in the history
@@ -912,7 +912,7 @@ const AddSubUnit = () => {
 
   const handleSubmit = (e) => {
     e?.preventDefault();
-    navigate("/subunit");
+    navigate("/task");
   };
 
   return (
@@ -931,7 +931,7 @@ const AddSubUnit = () => {
             </div>
 
             <div className="col-span-2">
-              <h1 className="text-2xl font-bold text-blue">Create Sub-Ward</h1>
+              <h1 className="text-2xl font-bold text-blue">Create Task</h1>
             </div>
           </head>
 
@@ -1006,8 +1006,68 @@ const AddSubUnit = () => {
                   </select>
                 </div>
                 <div className="">
+                  <label className="mb-3 block">Sub-Ward *</label>
+                  <select
+                    required
+                    className="p-3 rounded bg-slate-300 block w-full"
+                    onChange={(e) => {
+                      setSelectedWard(e.target.value);
+                      setSubUnitName(
+                        selectedState + "-" + selectedLGA + "-" + e.target.value
+                      );
+                    }}
+                  >
+                    <optgroup>
+                      <option value={"ward1"}>subward 1</option>
+                      <option value={"ward2"}>subward 2</option>
+                      <option value={"ward3"}>subward 3</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div className="">
+                  <label className="mb-3 block">Unit *</label>
+                  <select
+                    required
+                    className="p-3 rounded bg-slate-300 block w-full"
+                    onChange={(e) => {
+                      setSelectedWard(e.target.value);
+                      setSubUnitName(
+                        selectedState + "-" + selectedLGA + "-" + e.target.value
+                      );
+                    }}
+                  >
+                    <optgroup>
+                      <option value={"ward1"}>unit 1</option>
+                      <option value={"ward2"}>unit 2</option>
+                      <option value={"ward3"}>unit 3</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div className="">
+                  <label className="mb-3 block">Team *</label>
+                  <select
+                    required
+                    className="p-3 rounded bg-slate-300 block w-full"
+                    onChange={(e) => {
+                      setSelectedWard(e.target.value);
+                      setSubUnitName(
+                        selectedState + "-" + selectedLGA + "-" + e.target.value
+                      );
+                    }}
+                  >
+                    <optgroup>
+                      <option value={"ward1"}>team 1</option>
+                      <option value={"ward2"}>team 2</option>
+                      <option value={"ward3"}>team 3</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div className="">
                   <label htmlFor="employeeStatus" className="mb-3 block">
-                    Sub-Ward *
+                    Task *
                   </label>
 
                   <input
@@ -1024,8 +1084,8 @@ const AddSubUnit = () => {
               {/* super admin, senoir admin, admin, supervisor, fieldofficers */}
 
               <div className="my-4 flex items-center justify-end">
-                <button className="p-3 rounded bg-blue text-slate-100 text-center" onClick={handleGoBack} >
-                  Add ward
+                <button className="p-3 rounded bg-blue text-slate-100 text-center">
+                  Add Task
                 </button>
               </div>
             </form>
@@ -1036,4 +1096,4 @@ const AddSubUnit = () => {
   );
 };
 
-export default AddSubUnit;
+export default AddTask;
